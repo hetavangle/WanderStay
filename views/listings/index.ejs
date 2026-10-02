@@ -3,7 +3,7 @@
   <div class="page-shell listings-page">
     <section class="browse-tools" aria-label="Browse by category">
       <div id="filters" class="category-rail">
-        <a href="/listings" class="filter <%= !selectedCategory ? 'is-active' : '' %>" <%=!selectedCategory
+        <a href="/listings" class="filter <%= !selectedCategory ? 'is-active' : '' %>" <%-!selectedCategory
           ? 'aria-current="page"' : '' %>
           >
           <i class="ph ph-compass" aria-hidden="true"></i>
@@ -12,7 +12,7 @@
         <% for (const category of listingCategories) { %>
           <a href="/listings?category=<%= encodeURIComponent(category.value) %>"
             class="filter <%= selectedCategory === category.value ? 'is-active' : '' %>"
-            <%=selectedCategory===category.value ? 'aria-current="page"' : '' %>
+            <%-selectedCategory===category.value ? 'aria-current="page"' : '' %>
             >
             <i class="<%= category.icon %>" aria-hidden="true"></i>
             <span>
@@ -24,7 +24,7 @@
       <div class="tax-toggle">
         <div class="form-check form-switch">
           <input class="form-check-input" type="checkbox" role="switch" id="tax-switch" />
-          <label class="form-check-label" for="tax-switch">Display total after taxes</label>
+          <label class="form-check-label" for="tax-switch">Show tax details</label>
         </div>
       </div>
     </section>
@@ -65,7 +65,6 @@
                     <h3>
                       <%= listing.title %>
                     </h3>
-                    <span aria-label="Guest favourite"><i class="ph ph-star" aria-hidden="true"></i> New</span>
                   </div>
                   <p class="listing-location">
                     <%= listing.location %>, <%= listing.country %>
