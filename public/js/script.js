@@ -15,6 +15,22 @@
   });
 })();
 
+if ("IntersectionObserver" in window && !window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+  const revealObserver = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add("is-revealed");
+        revealObserver.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.1 });
+
+  document.querySelectorAll(".home-intro > div, .home-principles article, .listing-tile").forEach((element) => {
+    element.classList.add("reveal");
+    revealObserver.observe(element);
+  });
+}
+
 const currentPath = window.location.pathname;
 const navLinks = document.querySelectorAll("[data-nav-path]");
 

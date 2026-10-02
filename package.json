@@ -8,6 +8,7 @@
   "main": "index.js",
   "scripts": {
     "start": "node app.js",
+    "postinstall": "node -e \"const fs=require('node:fs'),file=require.resolve('connect-flash/lib/flash');fs.writeFileSync(file,fs.readFileSync(file,'utf8').replace(/require\\('util'\\)\\.isArray/, 'Array.isArray'));\"",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
