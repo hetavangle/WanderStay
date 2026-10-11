@@ -1,22 +1,37 @@
 :root {
   color-scheme: light;
-  --bg: #f5f7fa;
-  --surface: #fcfdff;
-  --surface-alt: #edf0f5;
-  --surface-deep: #e1e6ed;
-  --ink: #253044;
-  --muted: #5f6b7d;
-  --line: rgba(37, 48, 68, 0.11);
-  --brand: #ba4436;
-  --brand-hover: #a6372a;
-  --brand-soft: #faece9;
-  --brand-ink: #fcfdff;
-  --hero: #253044;
-  --hero-muted: #b6c0cf;
-  --danger: #a33d4c;
-  --danger-soft: #f5e3e6;
-  --success: #246650;
-  --success-soft: #deeee8;
+  --airbnb-primary: #FF385C;
+  --airbnb-primary-hover: #D90B3E;
+  --airbnb-primary-light: #FFF0F3;
+  --airbnb-teal: #00A699;
+  --airbnb-orange: #FC642D;
+  --text-main: #222222;
+  --text-muted: #717171;
+  --text-disabled: #B0B0B0;
+  --bg-white: #FFFFFF;
+  --bg-light: #F7F7F7;
+  --border-subtle: #EBEBEB;
+  --border-strong: #DDDDDD;
+  --btn-dark: #222222;
+  --btn-dark-hover: #000000;
+
+  --bg: var(--bg-white);
+  --surface: var(--bg-white);
+  --surface-alt: var(--bg-light);
+  --surface-deep: var(--border-subtle);
+  --ink: var(--text-main);
+  --muted: var(--text-muted);
+  --line: var(--border-subtle);
+  --brand: var(--airbnb-primary);
+  --brand-hover: var(--airbnb-primary-hover);
+  --brand-soft: var(--airbnb-primary-light);
+  --brand-ink: var(--bg-white);
+  --hero: var(--text-main);
+  --hero-muted: var(--text-disabled);
+  --danger: #C13515;
+  --danger-soft: #FFF0EC;
+  --success: #008A05;
+  --success-soft: #ECF8ED;
   --shadow: 0 1.5rem 4.5rem rgba(37, 48, 68, 0.055);
   --shadow-soft: 0 0.85rem 2.4rem rgba(37, 48, 68, 0.04);
   --container: 85rem;
@@ -160,16 +175,22 @@ p {
 
 .btn-primary {
   color: var(--brand-ink) !important;
-  background: var(--brand) !important;
-  border-color: var(--brand) !important;
+  background-color: var(--airbnb-primary) !important;
+  border: none !important;
+  border-radius: 8px;
+  padding: 14px 24px;
+  font-weight: 600;
   box-shadow: inset 0 1px rgba(255, 255, 255, 0.14);
 }
 
 .btn-primary:hover {
   color: var(--brand-ink) !important;
-  background: var(--brand-hover) !important;
-  border-color: var(--brand-hover) !important;
+  background-color: var(--airbnb-primary-hover) !important;
   transform: translateY(-1px);
+}
+
+.btn-primary:active {
+  transform: scale(0.98);
 }
 
 .btn-secondary {
@@ -298,7 +319,7 @@ p {
   margin-inline: auto 1rem;
   padding: 0.3rem 0.35rem 0.3rem 1rem;
   background: var(--bg);
-  border: 1px solid var(--line);
+  border: 1px solid var(--border-strong);
   border-radius: var(--radius-button);
   box-shadow: inset 0 1px rgba(255, 255, 255, 0.7);
 }
@@ -1410,7 +1431,7 @@ p {
   padding: 0.7rem 0.9rem;
   color: var(--ink);
   background-color: var(--bg);
-  border: 1px solid color-mix(in srgb, var(--muted) 80%, var(--bg));
+  border: 1px solid var(--border-strong);
   border-radius: var(--radius-control);
   font-size: 0.9rem;
 }
@@ -2036,10 +2057,11 @@ textarea.form-control {
     --ink: #f0f3f8;
     --muted: #b6c0cf;
     --line: rgba(182, 192, 207, 0.14);
-    --brand: #f39b8c;
-    --brand-hover: #ffb2a4;
+    --border-strong: rgba(182, 192, 207, 0.32);
+    --brand: var(--airbnb-primary);
+    --brand-hover: var(--airbnb-primary-hover);
     --brand-soft: #3b2a2c;
-    --brand-ink: #251b1a;
+    --brand-ink: var(--bg-white);
     --hero: #151a22;
     --hero-muted: #b6c0cf;
     --danger: #e7a2af;
