@@ -55,6 +55,13 @@ const listingSchema = new Schema({
 
 listingSchema.index({ geometry: "2dsphere" });
 
+listingSchema.pre("validate", function () {
+  const category = LISTING_CATEGORY_VALUES.find(
+    (value) => value.toLowerCase() === this.category?.toLowerCase(),
+  );
+  if (category) this.category = category;
+});
+
 listingSchema.post("findOneAndDelete", async (listing) => {
   if (listing) {
     await Review.deleteMany({ _id: { $in: listing.reviews } });
